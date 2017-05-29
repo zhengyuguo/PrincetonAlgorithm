@@ -1,0 +1,36 @@
+public class StackLinkedList<Item> {
+  private Node first = null;
+
+  private class Node {
+    Item item;
+    Node next;
+  }
+
+  public boolean isEmpty() {
+    return first == null;
+  }
+
+  public void push(Item item) {
+    Node oldfirst = first;
+    first = new Node();
+    first.item = item;
+    first.next = oldfirst;
+  }
+
+  public Item pop() {
+    Item item = first.item;
+    first = first.next;
+    return item;
+  }
+
+  public static void main(String[] args) {
+    StackLinkedList<String> stack = new StackLinkedList<>();
+    stack.push("AA");
+    stack.push("BB");
+    stack.push("CC");
+    System.out.println(stack.pop());
+    System.out.println(stack.pop());
+    System.out.println(stack.pop());
+  }
+}
+
